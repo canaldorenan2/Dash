@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuCreationPlayer : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class MenuCreationPlayer : MonoBehaviour
 
     int count = 0;
 
-
+    public Text txtBtn;
 
     private void Start()
     {
@@ -42,7 +43,11 @@ public class MenuCreationPlayer : MonoBehaviour
         else
             count++;
 
+        Debug.Log("Next Chamado");
+
         int buttomFunction = GetButtomFunction();
+
+        Debug.Log("Function obtained: " + buttomFunction);
 
         ChangeSkinCollor(buttomFunction);
     }
@@ -83,7 +88,7 @@ public class MenuCreationPlayer : MonoBehaviour
         string bName;
         int buttomFunction = 0;
 
-        bName = gameObject.name;
+        bName = nextButtom.name;
 
         buttomFunction = (int)char.GetNumericValue(bName[0]);
 
@@ -96,6 +101,7 @@ public class MenuCreationPlayer : MonoBehaviour
         {
             case 0:
                 hats.sprite = spritesHat[count];
+                Debug.Log("hat obtained: " + hats.sprite.name);
                 break;
             case 1:
                 hair.sprite = spritesHair[count];
@@ -123,7 +129,7 @@ public class MenuCreationPlayer : MonoBehaviour
 
         newNumber = (int)char.GetNumericValue(nextButtom.name[0]);
 
-        if (newNumber >= 4)
+        if (newNumber >= 3)
         {
             newNumber = 0;
         }
@@ -134,6 +140,22 @@ public class MenuCreationPlayer : MonoBehaviour
 
         nextButtom.name = "" + newNumber + " - Next - Skin";
         previousButtom.name = "" + newNumber + " - Back - Skin";
+
+        switch (newNumber)
+        {
+            case 0:
+                txtBtn.text = "HAT";
+                break;
+            case 1:
+                txtBtn.text = "HAIR";
+                break;
+            case 2:
+                txtBtn.text = "BEARD";
+                break;
+            case 3:
+                txtBtn.text = "FACE";
+                break;
+        }
 
     }
 }

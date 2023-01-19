@@ -1623,6 +1623,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6355778645869698171, guid: 19f1e2f46084c6240b89d81f1fc1efab, type: 3}
   m_PrefabInstance: {fileID: 486750718}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &561979622 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2797091703419844058, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
+  m_PrefabInstance: {fileID: 1767230364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &596927548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3671,6 +3676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   intro: {fileID: 61155356}
   playerCreation: {fileID: 419511342}
+  player: {fileID: 561979622}
   dash: {fileID: 1104298018}
   enter: {fileID: 1432599004}
 --- !u!4 &1425798329
@@ -3889,7 +3895,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1448929773}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1928733449}
+        m_TargetAssemblyTypeName: MenuCreationPlayer, Assembly-CSharp
+        m_MethodName: ChangeButtomFunction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1459739305
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,7 +4414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1566586948
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4999,35 +5017,19 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1898940069}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2797091702767538787, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6d5b75821aa5244ddbc1a5813e8704eb, type: 3}
-    - target: {fileID: 2797091703355057064, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 529b2f28079ec4f6090ffd812c94f079, type: 3}
-    - target: {fileID: 2797091703364262325, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2797091703364262325, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2797091703419844057, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2797091703419844057, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.032
+      value: -0.15368652
       objectReference: {fileID: 0}
     - target: {fileID: 2797091703419844057, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.204
+      value: 1.1210327
       objectReference: {fileID: 0}
     - target: {fileID: 2797091703419844057, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5290,8 +5292,7 @@ Transform:
   m_LocalPosition: {x: -941.04, y: -760.11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2121463838}
+  m_Children: []
   m_Father: {fileID: 419511343}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5407,13 +5408,13 @@ MonoBehaviour:
   gameObjectBeard: {fileID: 1477735452}
   gameObjectFace: {fileID: 1331657922}
   spritesHat:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4fe61317c8d323440a6d356fca39d0ff, type: 3}
   - {fileID: 21300000, guid: af879fd4cda304ad0b59fe256c8b7ad1, type: 3}
   - {fileID: 21300000, guid: 5c74b36ecb9134ef5b81a180c3aaf8ba, type: 3}
   - {fileID: 21300000, guid: 0c15196eae0de45569a9af36386d8b50, type: 3}
   - {fileID: 21300000, guid: 52296768e606f473ab1ca9299aa0821f, type: 3}
   spritesHair:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4fe61317c8d323440a6d356fca39d0ff, type: 3}
   - {fileID: 21300000, guid: 4c98296d1657344938f560860f9932fb, type: 3}
   - {fileID: 21300000, guid: 75f6a367c694d4cd79e6a1e746dabcc5, type: 3}
   - {fileID: 21300000, guid: 76e9c1cf496624e558aa99469676dbea, type: 3}
@@ -5421,7 +5422,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a5d9a168f790c4d9a9b9ced310d7bc1f, type: 3}
   - {fileID: 21300000, guid: 8d097acd6711f45df87a9eb655080294, type: 3}
   spritesBeard:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 4fe61317c8d323440a6d356fca39d0ff, type: 3}
   - {fileID: 21300000, guid: 6fe4533215f3a434f90f93ac05722e69, type: 3}
   - {fileID: 21300000, guid: 80c4ae502705f40249a61f4b140ff5f1, type: 3}
   - {fileID: 21300000, guid: 99d799c8108304efc982776c2e24b724, type: 3}
@@ -5452,6 +5453,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 02ce9bf36418f4ef7992d41489573d65, type: 3}
   - {fileID: 21300000, guid: 6ad2a487deaef4e4c942218a9549a38a, type: 3}
   - {fileID: 21300000, guid: ce343820637a54382a16408f826cbbb8, type: 3}
+  txtBtn: {fileID: 1276389386}
 --- !u!4 &1928733450
 Transform:
   m_ObjectHideFlags: 0
@@ -5810,11 +5812,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!4 &2121463838 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2797091703419844057, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
-  m_PrefabInstance: {fileID: 1767230364}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2140083593
 GameObject:
   m_ObjectHideFlags: 0

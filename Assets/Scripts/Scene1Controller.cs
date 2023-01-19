@@ -6,6 +6,7 @@ public class Scene1Controller : MonoBehaviour
 {
     public GameObject intro;
     public GameObject playerCreation;
+    public GameObject player;
 
     public GameObject dash;
     public GameObject enter;
@@ -20,12 +21,14 @@ public class Scene1Controller : MonoBehaviour
         enter.SetActive(false);
         playerCreation.SetActive(false);
         intro.SetActive(true);
+        player.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
         count += Time.deltaTime;
+
 
         if (count >= 3)
         {
@@ -42,6 +45,7 @@ public class Scene1Controller : MonoBehaviour
         {
             playerCreation.SetActive(true);
             intro.SetActive(false);
+            player.SetActive(true);
         }
 
     }
