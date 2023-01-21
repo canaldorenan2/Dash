@@ -46,10 +46,7 @@ public class NPCm : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pc == null)
-        {
-            pc = GameObject.Find("Character").GetComponent<PlayerController>();
-        }
+
 
         if (!isTalking)
         {
@@ -167,5 +164,13 @@ public class NPCm : MonoBehaviour
     {
         isTalking = false;
         dialogue[line].SetActive(false);
+    }
+
+    public void InstanciaPlayer(PlayerController inst)
+    {
+        if (pc == null)
+        {
+            pc = inst;
+        }
     }
 }

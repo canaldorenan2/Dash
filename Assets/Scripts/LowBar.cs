@@ -130,4 +130,12 @@ public class LowBar : MonoBehaviour
             letter.SetActive(true);
         }
     }
+
+    public void InstanciaPlayer(PlayerController inst)
+    {
+        if (pc == null)
+        {
+            pc = inst;
+        }
+    }
 }

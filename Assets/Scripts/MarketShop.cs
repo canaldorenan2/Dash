@@ -32,7 +32,7 @@ public class MarketShop : MonoBehaviour
     {
         //animalPlace.SetActive(false);
         clock = GameObject.Find("Clock").GetComponent<Clock>();
-        pc = GameObject.Find("Character").GetComponent<PlayerController>();
+        //pc = GameObject.Find("Character").GetComponent<PlayerController>();
 
         item[0] = 1;
         item[1] = 1;
@@ -156,6 +156,14 @@ public class MarketShop : MonoBehaviour
             pc.cash += 15;
             item[1] = 0;
             sell1.text = "done";
+        }
+    }
+
+    public void InstanciaPlayer(PlayerController inst)
+    {
+        if (pc == null)
+        {
+            pc = inst;
         }
     }
 }

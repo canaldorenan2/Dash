@@ -50,6 +50,7 @@ public class House : MonoBehaviour
 
         if (merc.line > 1 && pc.key)
         {
+            ok = true;
             if (collision.tag == "Player" || collision.tag == "Interactable")
             {
                 ok = true;
@@ -62,7 +63,7 @@ public class House : MonoBehaviour
     {
         if (collision.tag == "Player" || collision.tag == "Interactable")
         {
-            ok = false;
+            //ok = false;
         }
     }
 
@@ -95,5 +96,13 @@ public class House : MonoBehaviour
     {
         Debug.Log("Transition");
         fade = 0;
+    }
+
+    public void InstanciaPlayer(PlayerController inst)
+    {
+        if (pc == null)
+        {
+            pc = inst;
+        }
     }
 }

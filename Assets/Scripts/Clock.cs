@@ -79,4 +79,12 @@ public class Clock : MonoBehaviour
         int numberdisplay = dayDate + 1;
         dayNumber.text = numberdisplay.ToString();
     }
+
+    public void InstanciaPlayer(PlayerController inst)
+    {
+        if (pc == null)
+        {
+            pc = inst;
+        }
+    }
 }

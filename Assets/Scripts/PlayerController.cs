@@ -30,6 +30,13 @@ public class PlayerController : MonoBehaviour
 
     public bool receivegold;
 
+    // instantiate player in objects in main game
+    NPCm npc;
+    LowBar lowBar;
+    Clock clock;
+    House house;
+    MarketShop market;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +65,26 @@ public class PlayerController : MonoBehaviour
         }
 
         shop = GameObject.Find("Shop");
+
+
+        // instantiate player
+        npc = GameObject.Find("NPC - M").GetComponent<NPCm>();
+        npc.InstanciaPlayer(this);
+
+        lowBar = GameObject.Find("LowBar").GetComponent<LowBar>();
+        lowBar.InstanciaPlayer(this);
+
+        clock = GameObject.Find("Clock").GetComponent<Clock>();
+        clock.InstanciaPlayer(this);
+
+
+        house = GameObject.Find("House").GetComponent<House>();
+        house.InstanciaPlayer(this);
+
+        market = GameObject.Find("MarketShop").GetComponent<MarketShop>();
+        market.InstanciaPlayer(this);
+
+
         shop.SetActive(false);
         notSet = true;
         transform.position = new Vector3(-25, 15, -0.75f);
