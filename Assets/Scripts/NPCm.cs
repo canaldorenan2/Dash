@@ -17,8 +17,15 @@ public class NPCm : MonoBehaviour
     bool ok;
 
     public GameObject[] dialogue;
-    int line = 0;
+    public int line = 0;
 
+    Clock clock;
+
+    GameObject displayCharacter;
+
+    GameObject marketShop;
+
+    PlayerController pc;
     void Start()
     {
         isTalking = false;
@@ -26,11 +33,24 @@ public class NPCm : MonoBehaviour
         aux = 5;
 
         anim = gameObject.GetComponentInChildren<Animator>();
+        clock = GameObject.Find("Clock").GetComponent<Clock>();
+        marketShop = GameObject.Find("MarketShop");
+        
+    }
+
+    private void Awake()
+    {
+        pc = GameObject.Find("Character").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(pc == null)
+        {
+            pc = GameObject.Find("Character").GetComponent<PlayerController>();
+        }
+
         if (!isTalking)
         {
             if (wait)
@@ -61,6 +81,13 @@ public class NPCm : MonoBehaviour
                 }
                 timer -= Time.deltaTime;
             }
+        }
+
+        if (clock.dayDate > 1 && pc.key)
+        {
+            displayCharacter.SetActive(false);
+            isTalking = true;
+            marketShop.SetActive(true);
         }
     }
 
@@ -114,7 +141,7 @@ public class NPCm : MonoBehaviour
     {
         Deactivate();
 
-        if (PlayerController.key && line <2)
+        if (pc.key && line <2)
         {
             line++;
         }

@@ -51,6 +51,11 @@ public class MenuCreationPlayer : MonoBehaviour
         beard = gameObjectBeard.GetComponent<SpriteRenderer>();
         face = gameObjectFace.GetComponent<SpriteRenderer>();
 
+        //if(SceneManager.GetActiveScene().name == "MainGame")
+        priceHat = new int[spritesHat.Length];
+        priceHair = new int[spritesHair.Length];
+        priceBeard = new int[spritesBeard.Length];
+        priceFace = new int[spritesFace.Length];
         Price();
     }
 
@@ -119,19 +124,23 @@ public class MenuCreationPlayer : MonoBehaviour
         {
             case 0:
                 hats.sprite = spritesHat[count];
-                priceTxt.text = "$ " + priceHat[count];
+                if (SceneManager.GetActiveScene().name == "MainGame")
+                    priceTxt.text = "" + priceHat[count];
                 break;
             case 1:
                 hair.sprite = spritesHair[count];
-                priceTxt.text = "$ " + priceHair[count];
+                if (SceneManager.GetActiveScene().name == "MainGame")
+                    priceTxt.text = "" + priceHair[count];
                 break;
             case 2:
                 beard.sprite = spritesBeard[count];
-                priceTxt.text = "$ " + priceBeard[count];
+                if (SceneManager.GetActiveScene().name == "MainGame")
+                    priceTxt.text = "" + priceBeard[count];
                 break;
             case 3:
                 face.sprite = spritesFace[count];
-                priceTxt.text = "$ " + priceFace[count];
+                if (SceneManager.GetActiveScene().name == "MainGame")
+                    priceTxt.text = "" + priceFace[count];
                 break;
 
             default:
@@ -183,22 +192,22 @@ public class MenuCreationPlayer : MonoBehaviour
     public void Price()
     {
 
-        for (int i = 0; i <= spritesHat.Length; i++)
+        for (int i = 0; i <= spritesHat.Length-1; i++)
         {
             priceHat[i] = 50 + i + Random.Range(0,10);
         }
 
-        for (int i = 0; i <= spritesHair.Length; i++)
+        for (int i = 0; i <= spritesHair.Length-1; i++)
         {
             priceHair[i] = 60 + i + Random.Range(0, 10);
         }
 
-        for (int i = 0; i <= spritesFace.Length; i++)
+        for (int i = 0; i <= spritesFace.Length-1; i++)
         {
             priceFace[i] = 80 + i + Random.Range(0, 10);
         }
 
-        for (int i = 0; i <= spritesBeard.Length; i++)
+        for (int i = 0; i <= spritesBeard.Length-1; i++)
         {
             priceBeard[i] = 10 + i + Random.Range(0, 10);
         }

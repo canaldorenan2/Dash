@@ -3820,6 +3820,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2121463840, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2797091703419844057, guid: 0871322b4aeff47ef9da70b17d425321, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4250,6 +4254,10 @@ PrefabInstance:
     - target: {fileID: 5209596258575991715, guid: 78eaf98308f9320429d0f3e39a5955fc, type: 3}
       propertyPath: m_Name
       value: Character creation
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209596258575991715, guid: 78eaf98308f9320429d0f3e39a5955fc, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5209596259997277316, guid: 78eaf98308f9320429d0f3e39a5955fc, type: 3}
       propertyPath: gameObjectHat

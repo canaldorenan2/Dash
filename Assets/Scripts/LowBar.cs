@@ -17,6 +17,13 @@ public class LowBar : MonoBehaviour
 
     bool closedLetter = true;
 
+    PlayerController pc;
+
+    void Start()
+    {
+        pc = GameObject.Find("Character").GetComponent<PlayerController>();
+    }
+
     public void AddItem(GameObject item, SpriteRenderer spriteRenderer)
     {
         if (emp > 8)
@@ -31,7 +38,7 @@ public class LowBar : MonoBehaviour
             Debug.Log("Item: " + items[emp].name);
             if (item.name == "key")
             {
-                PlayerController.key = true;
+                pc.key = true;
             }
                 
             

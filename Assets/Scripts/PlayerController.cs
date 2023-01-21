@@ -7,13 +7,13 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    GameObject camera;
+    GameObject camera1;
     public float distanceCameraZ;
     public float speed;
     TextMeshProUGUI lifeTxt;
     TextMeshProUGUI cashTxt;
 
-    bool move;
+    
     Animator anim;
 
     public float cooldown = 4;
@@ -21,48 +21,60 @@ public class PlayerController : MonoBehaviour
     public int life = 5;
     public int cash = 0;
 
-    public static bool key = false;
+    public bool key = false;
 
     public bool playable = false;
+
+    GameObject shop;
+    bool notSet;
+
+    public bool receivegold;
 
     // Start is called before the first frame update
     void Start()
     {
-        move = false;
+ 
         playable = false;
         anim = gameObject.GetComponentInChildren<Animator>();
-        //transform.position = new Vector3(-25, 15, -0.75f);
+        notSet = false;
+        
 
     }
 
     void StartAfter()
     {
-        move = true;
 
-        camera = GameObject.Find("CameraTop");
+
+        camera1 = GameObject.Find("CameraTop");
 
         if (distanceCameraZ == 0)
         {
             distanceCameraZ = 10;
         }
-        if (playable)
+
         {
             lifeTxt = GameObject.Find("Life-TMP").GetComponent<TextMeshProUGUI>();
             cashTxt = GameObject.Find("Cash-TMP").GetComponent<TextMeshProUGUI>();
         }
+
+        shop = GameObject.Find("Shop");
+        shop.SetActive(false);
+        notSet = true;
+        transform.position = new Vector3(-25, 15, -0.75f);
     }
     
     // Update is called once per frame
     void Update()
     {
-        if (move)
+        if (playable)
         {
             Movement();
         }
         else
         {
-            if (SceneManager.GetActiveScene().name == "MainGame")
+            if (SceneManager.GetActiveScene().name == "MainGame" && notSet == false)
             {
+                
                 StartAfter();
             }
         }
@@ -72,6 +84,19 @@ public class PlayerController : MonoBehaviour
         {
             cooldown = Time.deltaTime;
         }
+
+        if (SceneManager.GetActiveScene().name == "MainGame")
+        {
+            if (shop.active)
+            {
+                playable = false;
+            }
+            else
+            {
+                playable = true;
+            }
+        }
+
         
     }
 
@@ -81,9 +106,9 @@ public class PlayerController : MonoBehaviour
 
         if (playable)
         {
-            if (move)
+            //
             {
-                camera.transform.position = transform.position + new Vector3(0, 1, -distanceCameraZ);
+                camera1.transform.position = transform.position + new Vector3(0, 1, -distanceCameraZ);
             }
 
             lifeTxt.text = life + "/5";
