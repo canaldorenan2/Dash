@@ -12,6 +12,11 @@ public class Scene1Controller : MonoBehaviour
     public GameObject enter;
 
     float count;
+
+    PlayerController pc;
+
+    public GameObject shop;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +27,9 @@ public class Scene1Controller : MonoBehaviour
         playerCreation.SetActive(false);
         intro.SetActive(true);
         player.SetActive(false);
+
+        pc = GameObject.Find("Character").GetComponent<PlayerController>();
+        pc.playable = false;
     }
 
     // Update is called once per frame
@@ -46,6 +54,15 @@ public class Scene1Controller : MonoBehaviour
             playerCreation.SetActive(true);
             intro.SetActive(false);
             player.SetActive(true);
+        }
+
+        if (shop.active)
+        {
+            pc.playable = false;
+        }
+        else
+        {
+            pc.playable = true;
         }
 
     }

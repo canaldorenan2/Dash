@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuCreationPlayer : MonoBehaviour
 {
     public GameObject nextButtom;
     public GameObject previousButtom;
 
-    public GameObject gameObjectHat;
-    public GameObject gameObjectHair;
-    public GameObject gameObjectBeard;
-    public GameObject gameObjectFace;
+     GameObject gameObjectHat;
+     GameObject gameObjectHair;
+     GameObject gameObjectBeard;
+     GameObject gameObjectFace;
 
     SpriteRenderer hats;
     SpriteRenderer hair;
@@ -20,9 +21,18 @@ public class MenuCreationPlayer : MonoBehaviour
     SpriteRenderer face;
 
     public Sprite[] spritesHat;
+     int[] priceHat;
+
     public Sprite[] spritesHair;
+     int[] priceHair;
+
     public Sprite[] spritesBeard;
+     int[] priceBeard;
+
     public Sprite[] spritesFace;
+     int[] priceFace;
+
+    public Text priceTxt;
 
     int count = 0;
 
@@ -30,10 +40,18 @@ public class MenuCreationPlayer : MonoBehaviour
 
     private void Start()
     {
+        gameObjectHat = GameObject.Find("Hat");
+        gameObjectHair = GameObject.Find("Hair");
+        gameObjectBeard = GameObject.Find("Beard");
+        gameObjectFace = GameObject.Find("Face");
+
+
         hats = gameObjectHat.GetComponent<SpriteRenderer>();
         hair = gameObjectHair.GetComponent<SpriteRenderer>();
         beard = gameObjectBeard.GetComponent<SpriteRenderer>();
         face = gameObjectFace.GetComponent<SpriteRenderer>();
+
+        Price();
     }
 
     public void Next()
@@ -101,16 +119,19 @@ public class MenuCreationPlayer : MonoBehaviour
         {
             case 0:
                 hats.sprite = spritesHat[count];
-                Debug.Log("hat obtained: " + hats.sprite.name);
+                priceTxt.text = "$ " + priceHat[count];
                 break;
             case 1:
                 hair.sprite = spritesHair[count];
+                priceTxt.text = "$ " + priceHair[count];
                 break;
             case 2:
                 beard.sprite = spritesBeard[count];
+                priceTxt.text = "$ " + priceBeard[count];
                 break;
             case 3:
                 face.sprite = spritesFace[count];
+                priceTxt.text = "$ " + priceFace[count];
                 break;
 
             default:
@@ -155,6 +176,44 @@ public class MenuCreationPlayer : MonoBehaviour
             case 3:
                 txtBtn.text = "FACE";
                 break;
+        }
+
+    }
+
+    public void Price()
+    {
+
+        for (int i = 0; i <= spritesHat.Length; i++)
+        {
+            priceHat[i] = 50 + i + Random.Range(0,10);
+        }
+
+        for (int i = 0; i <= spritesHair.Length; i++)
+        {
+            priceHair[i] = 60 + i + Random.Range(0, 10);
+        }
+
+        for (int i = 0; i <= spritesFace.Length; i++)
+        {
+            priceFace[i] = 80 + i + Random.Range(0, 10);
+        }
+
+        for (int i = 0; i <= spritesBeard.Length; i++)
+        {
+            priceBeard[i] = 10 + i + Random.Range(0, 10);
+        }
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            gameObject.SetActive(false); ;
         }
 
     }
